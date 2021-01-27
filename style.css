@@ -1,0 +1,320 @@
+/* Color Scheme */
+:root {
+    --black:#000000;
+    --platinum:#E5E5E5;
+    --white:#FFFFFF;
+    --oxford-blue:#14213D;
+    --orange:#FCA311;
+}
+
+/* Removing white edges of the whole page */
+body {
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Making the h1 bold with uppercase letters and Cinzel font */
+h1 {
+    margin-top: 200px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+}
+
+/* Setting the general color to white and setting the text in the middle of each div */
+/* Starting the grid with 2 columns of 1fr each and 6 rows with full height 100% each */
+.container {
+    color: var(--white);
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 100%);
+    height: 100vh;
+    /* Assigning grid areas */
+    grid-template-areas: 
+        "intro intro"
+        "content1 content2"
+        "content3 content4"
+        "content5 content6"
+        "content7 content8"
+        "footer footer";
+}
+
+/* Styling the introduction part */
+/* Background color to black & column width 50% one column with 3 rows 1fr each & a grid gap between grids .2rem */
+/* Aligning contents to be right at the center */
+#intro {
+    background: var(--black);
+    grid-area: intro;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: .2rem;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Animation for the title Software Developer */
+/* The title starts orange then it turns to black and then it turns back orange */
+@keyframes colors {
+    0% {color: var(--orange);}
+    
+    50% {color: transparent;}
+    
+    100% {color: var(--orange);}
+  }
+
+/* Grid column full-width 1/4 with a padding of 150px from above */
+/* Assigning this title (Software Developer) to the previous keyframe (colors) */
+/* Animation takes 3 seconds to finish and then it keeps running over and over again with the infinite iteration count */
+#nested1 {
+    display: none;
+    grid-column: 1/4;
+    padding-top: 150px;
+}
+
+.arrow {
+    color: var(--orange);
+    animation-name: colors;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    text-decoration: none;
+}
+
+/* Animation to turn a subject color from transparent to white (Fade in) */
+@keyframes fade {
+    from {color:transparent}
+    to {color: var(--white);}
+}
+
+/* Main title (My name) with animation function to fade in within 7 seconds and stays white */
+#nested2 {
+    grid-column: 1/4;
+    color: var(--white);
+    animation-name: fade;
+    animation-duration: 7s;
+}
+
+/* Setting the third element of each div (nesting) to be full width to the 50% it has */
+#nested3 {
+    grid-column: 1/4;
+    margin-left: 5rem;
+    padding-top: 100px;
+}
+
+/* Removing lists styles */
+ol, ul {
+    list-style: none;
+}
+
+/* Styling navigation bar links */
+ul a {
+    float: left;
+    color: var(--white);
+    padding-right: 3rem;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+/* All Links have hover function to turn their text color to orange when user hovers over them */
+a:hover {
+    color: var(--orange);
+}
+
+/* First content block has oxford blue color & I've assigned it to the grid area*/
+#content1 {
+    background: var(--oxford-blue);
+    grid-area: content1;
+}
+
+/* Starting the grid with 2 columns of 1fr each and 6 rows with full height 100% each 
+Each row is a full page so you scroll between rows
+Making the text bold with font-weight 600*/
+#content2 {
+    padding-top: 40px;
+    background: var(--platinum);
+    color: var(--black);
+    grid-area: content2;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: .2rem;
+    justify-content: center;
+    align-content: center;
+    font-weight: 600;
+}
+
+/* Special paragraph styling with half opacity and italic font-style */
+span {
+    font-style: italic;
+    opacity: 0.5;
+}
+
+/* Making all icons bigger */
+.fab, .fas {
+    font-size: 60px;
+}
+
+/* Projects and Experience content area only has 2 rows & font is Raleway */
+#content3 {
+    padding-top: 40px;
+    background: var(--platinum);
+    grid-area: content3;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: .2rem;
+    justify-content: center;
+    align-content: center;
+    color: var(--black);
+    font-family: 'Raleway', sans-serif;
+}
+
+
+#content4 {
+    background: var(--oxford-blue);
+    grid-area: content4;
+}
+
+#content5 {
+    background: var(--oxford-blue);
+    grid-area: content5;
+}
+
+#content6 {
+    padding-top: 40px;
+    background: var(--platinum);
+    grid-area: content6;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: .2rem;
+    justify-content: center;
+    align-content: center;
+    color: var(--black);
+    font-size: larger;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Contact contents area */
+#content7 {
+    padding-top: 69px;
+    background: var(--platinum);
+    grid-area: content7;
+    display: grid;
+    grid-template-columns: 50%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: .2rem;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Making the links black in the contact contents area */
+#content7 a{
+    color: var(--black);
+}
+
+/* Hover orange function also for the link contact contents area */
+#content7 a:hover{
+    color: var(--orange);
+}
+
+#content8 {
+    background: var(--oxford-blue);
+    grid-area: content8;
+}
+
+/* Setting the background of the footer to black with spacing from above & font style Cinzel  */
+#footer {
+    background: var(--black);
+    grid-area: footer;
+    padding-top: 150px;
+    font-family: 'Cinzel', serif;
+}
+
+
+/*  Media Query
+    Making the portfolio responsive to smartphones with different screens width 
+    Everything in one column instead of two */
+@media only screen and (max-width:550px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12,100vh);
+        grid-template-areas: 
+            "intro"
+            "content1"
+            "content2"
+            "content3"
+            "content4"
+            "content5"
+            "content6"
+            "content7"
+            "content8"
+            "footer";
+    }
+
+    /* Removing first headings top margin */
+    h1 {
+        margin-top: 0;
+    }
+
+    #nested1 {
+        display: inline-block;
+    }
+
+    /* Hide the navigation bar in small screens*/
+    #nested3 ul{
+        display: none;
+    }
+    
+    /* Spacing from the right side of each link in the navigation bar list */
+    ul a {
+        padding-right: 2rem;
+    }
+
+    /* Moving back the logo of the project in Work & Experience area to be right in the middle */
+    #content3 #nested4 a {
+        margin-left: -13px;
+    }
+
+    #content3 #nested5 {
+        padding-bottom: 40px;
+    }
+
+    /* Leaving space from the left side of contents so they be in the center 
+    And setting the template column to full width so that it takes more space be in one line in small screen*/
+    #intro, #content1, #content4, #content5, #content8 {
+        grid-template-columns: 100%;
+        padding-left: 2rem;
+    }
+
+    /* Swapping of content3 and content4 */
+    #content4 {
+        grid-row: 4/5;
+    }
+    #content3 {
+        grid-row: 5/6;
+    }
+
+    img {
+        width: 250px;
+        padding-left: 15px;
+    }
+
+    /* Swapping of content7 and content8 */
+    #content8 {
+        grid-row: 8/9;
+    }
+    #content7 {
+        grid-row: 9/10;
+        padding-bottom: 50px;
+    }
+
+    #footer {
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+
+}/* End of Media Query */
